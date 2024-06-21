@@ -1,0 +1,50 @@
+{
+  "name": "nuxt3-starter",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "nuxt": "nuxt",
+    "module": "nuxt module",
+    "postmodule": "eslint ./nuxt.config.ts --fix",
+    "lint:check": "eslint . --cache",
+    "lint": "eslint . --cache --fix"
+  },
+  "dependencies": {
+    "@nuxt/eslint": "^0.3.13",
+    "@nuxt/icon": "1.0.0-rc.1",
+    "@nuxt/image": "^1.7.0",
+    "@nuxtjs/seo": "2.0.0-rc.10",
+    "@opentelemetry/api": "1.8.0",
+    "@pinia/nuxt": "^0.5.1",
+    "nuxt": "^3.12.2",
+    "nuxt-typed-router": "^3.6.4",
+    "primevue": "4.0.0-rc.2",
+    "vue": "^3.4.29",
+    "vue-router": "^4.3.3"
+  },
+  "devDependencies": {
+    "@primevue/nuxt-module": "4.0.0-rc.2",
+    "@vueuse/core": "^10.11.0",
+    "@vueuse/nuxt": "^10.11.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-vue": "^9.26.0",
+    "eslint-plugin-vuejs-accessibility": "^2.3.0",
+    "lint-staged": "^15.2.7",
+    "sass": "^1.77.6",
+    "simple-git-hooks": "^2.11.1"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.{cjs,mjs,js,ts,tsx,vue}": [
+      "eslint --cache --fix"
+    ]
+  }
+}
