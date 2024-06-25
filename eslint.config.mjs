@@ -17,6 +17,10 @@ export default withNuxt(
     "rules": {
       "vue/multi-word-component-names": "off",
       "vue/no-console": "error",
+      "vue/max-attributes-per-line": ["warn", {
+        "singleline": 3,
+        "multiline": 1,
+      }],
     },
   },
   {
