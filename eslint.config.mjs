@@ -21,6 +21,7 @@ export default withNuxt(
         "singleline": 3,
         "multiline": 1,
       }],
+      "vue/singleline-html-element-content-newline": "off",
     },
   },
   {

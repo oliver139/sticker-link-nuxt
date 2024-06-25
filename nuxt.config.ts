@@ -11,6 +11,11 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "nuxt-typed-router",
   ],
+  css: [
+    "normalize.css/normalize.css",
+    "assets/css/variable.scss",
+    "assets/css/base.scss",
+  ],
   components: [
     {
       path: "@/components",
