@@ -32,7 +32,7 @@ a {
   text-decoration: none;
   transition: color .3s ease;
   &:hover {
-    color: rgb(var(--theme-normal));
+    color: var(--theme-normal);
   }
 }
 
@@ -53,7 +53,7 @@ button {
   &.btn {
     color: #fff;
     font-weight: 600;
-    background: rgb(var(--theme-normal));
+    background: var(--theme-normal);
     border-radius: 0.375rem;
     padding: 1rem 2rem;
   }
