@@ -34,14 +34,32 @@
       />
     </div>
   </Transition>
+
+  <Transition name="start">
+    <div
+      v-if="startCover"
+      class="start-cover"
+      :style="{ '--cover-color': stripColors[0] }"
+    />
+  </Transition>
+
   <button type="button" class="btn coverBtn" @click="coverContent = !coverContent">Change</button>
 </template>
 
 <script setup lang="ts">
+import { promiseTimeout } from "@vueuse/core";
+
 // #region : Cover content transition
 // State
-// const coverContent = useState<boolean>("coverContent", () => false);
-const coverContent = ref<boolean>(false);
+const coverContent = useState<boolean>("coverContent", () => true);
+const startCover = ref<boolean>(true);
+
+// Start Cover
+onMounted(async () => {
+  startCover.value = false;
+  await promiseTimeout(800);
+  coverContent.value = false;
+});
 
 // Size
 const { width: screenWidth } = useWindowSize();
@@ -86,19 +104,37 @@ const delayTime = computed(() => Math.floor((eachDuration.value * 0.5) / numberO
 </style>
 
 <style lang="scss" scoped>
-.coverBtn {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-.content-cover {
-  display: grid;
-  grid-template-columns: repeat(var(--strip-count), 1fr);
+%full-cover {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.coverBtn {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.start-cover {
+  @extend %full-cover;
+  background: #f0f0f0;
+  &.start {
+    &-leave-to {
+      background: var(--cover-color);
+    }
+    &-leave-active {
+      transition: background .3s ease;
+    }
+  }
+}
+
+.content-cover {
+  @extend %full-cover;
+  display: grid;
+  grid-template-columns: repeat(var(--strip-count), 1fr);
   .strip {
     position: relative;
     top: 0;

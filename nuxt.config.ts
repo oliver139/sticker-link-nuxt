@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxt/image",
     "@nuxtjs/seo",
-    "@pinia/nuxt",
     "@primevue/nuxt-module",
     "@vueuse/nuxt",
     "nuxt-typed-router",
